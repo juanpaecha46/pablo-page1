@@ -1,0 +1,96 @@
+<!-- Página de contacto -->
+<h1 class="titulo-pagina">Contacto</h1>
+
+<div class="contenedor-contacto">
+  <!-- Información de contacto -->
+  <div class="tarjeta info-contacto">
+    <h2>¿Necesitas ayuda?</h2>
+    <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+    
+    <div class="datos-contacto">
+      <div class="dato">
+        <strong>📧 Email:</strong>
+        <p>contacto&#64;juanservicios.com</p>
+      </div>
+      <div class="dato">
+        <strong>📞 Teléfono:</strong>
+        <p>+34 600 123 456</p>
+      </div>
+      <div class="dato">
+        <strong>📍 Dirección:</strong>
+        <p>Calle Principal, 123<br/>Madrid, España</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario de contacto -->
+  <div class="tarjeta formulario-contacto">
+    <!-- Mensaje de envío exitoso -->
+    <div *ngIf="enviado" class="mensaje-exito">
+      ✅ Mensaje enviado exitosamente! Nos pondremos en contacto pronto.
+    </div>
+
+    <form (ngSubmit)="enviar()" class="formulario">
+      <!-- Campo: Nombre -->
+      <div class="grupo-formulario">
+        <label for="nombre">Nombre *</label>
+        <input
+          id="nombre"
+          type="text"
+          class="entrada"
+          placeholder="Tu nombre"
+          [(ngModel)]="formulario.nombre"
+          name="nombre"
+          required>
+      </div>
+
+      <!-- Campo: Email -->
+      <div class="grupo-formulario">
+        <label for="email">Email *</label>
+        <input
+          id="email"
+          type="email"
+          class="entrada"
+          placeholder="tu@email.com"
+          [(ngModel)]="formulario.email"
+          name="email"
+          required>
+      </div>
+
+      <!-- Campo: Asunto -->
+      <div class="grupo-formulario">
+        <label for="asunto">Asunto</label>
+        <input
+          id="asunto"
+          type="text"
+          class="entrada"
+          placeholder="Tema de tu mensaje"
+          [(ngModel)]="formulario.asunto"
+          name="asunto">
+      </div>
+
+      <!-- Campo: Mensaje -->
+      <div class="grupo-formulario">
+        <label for="mensaje">Mensaje *</label>
+        <textarea
+          id="mensaje"
+          class="entrada"
+          placeholder="Cuéntanos qué necesitas..."
+          [(ngModel)]="formulario.mensaje"
+          name="mensaje"
+          rows="5"
+          required></textarea>
+      </div>
+
+      <!-- Botones -->
+      <div class="acciones">
+        <button type="submit" class="boton boton--primario">
+          Enviar Mensaje
+        </button>
+        <button type="button" class="boton boton--secundario" (click)="limpiarFormulario()">
+          Limpiar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

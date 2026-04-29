@@ -1,0 +1,67 @@
+/* Estilos del navbar */
+.barra-superior {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  gap: 14px;
+}
+
+.marca {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.marca__juan {
+  color: #1f3b5a;
+  margin-right: 6px;
+}
+
+.marca__servicios {
+  color: var(--verde);
+}
+
+.navegacion {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navegacion__enlace {
+  background: transparent;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.navegacion__enlace:hover {
+  background: #f3f4f6;
+}
+
+.navegacion__enlace.esta-activo {
+  color: var(--verde);
+  position: relative;
+}
+
+.navegacion__enlace.esta-activo::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--verde);
+}

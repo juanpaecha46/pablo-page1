@@ -1,0 +1,48 @@
+<!-- Página de servicios -->
+<h1 class="titulo-pagina">Lista de Servicios</h1>
+
+<!-- Barra de herramientas para filtros -->
+<div class="barra-herramientas tarjeta">
+  <!-- Búsqueda -->
+  <div class="busqueda">
+    <span class="busqueda__icono" aria-hidden="true">🔎</span>
+    <!-- [(ngModel)] = two-way binding (vincula en ambas direcciones) -->
+    <!-- (input) = evento cuando cambia el texto -->
+    <input
+      class="entrada"
+      type="search"
+      placeholder="Buscar servicios..."
+      [(ngModel)]="busqueda"
+      (input)="filtrar()">
+  </div>
+
+  <!-- Filtro por categoría -->
+  <!-- (change) = evento cuando cambia la selección -->
+  <select
+    class="entrada select"
+    [(ngModel)]="categoriaSeleccionada"
+    (change)="filtrar()">
+    <option value="">Categoría</option>
+    <!-- *ngFor = repite la opción por cada categoría -->
+    <option *ngFor="let cat of categorias" [value]="cat">
+      {{ cat }}
+    </option>
+  </select>
+</div>
+
+<!-- Cuadrícula de servicios -->
+<div class="cuadricula">
+  <!-- Mostrar tarjeta por cada servicio -->
+  <app-tarjeta-servicio
+    *ngFor="let servicio of servicios"
+    [servicio]="servicio"
+    (verDetalle)="verDetalle($event)"
+    (agregarFavorito)="agregarAFavoritos($event)"
+    (quitarFavorito)="quitarDeFavoritos($event)">
+  </app-tarjeta-servicio>
+</div>
+
+<!-- Mensaje si no hay servicios -->
+<div *ngIf="servicios.length === 0" class="mensaje-vacio">
+  <p>No se encontraron servicios.</p>
+</div>

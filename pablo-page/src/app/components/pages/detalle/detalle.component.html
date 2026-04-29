@@ -1,0 +1,60 @@
+<!-- Página de detalle del servicio -->
+<h1 class="titulo-pagina">Detalle del Servicio</h1>
+
+<!-- Mostrar si no hay servicio -->
+<div *ngIf="!servicio" class="mensaje-vacio">
+  <p>Servicio no encontrado.</p>
+</div>
+
+<!-- Mostrar detalle del servicio -->
+<div *ngIf="servicio" class="tarjeta detalle">
+  <!-- Imagen -->
+  <div class="detalle__imagen">
+    <img [src]="servicio.urlImagen" [alt]="servicio.nombre" />
+  </div>
+
+  <!-- Contenido -->
+  <div class="detalle__cuerpo">
+    <!-- Categoría -->
+    <span class="etiqueta">{{ servicio.categoria }}</span>
+
+    <!-- Título -->
+    <h2>{{ servicio.nombre }}</h2>
+
+    <!-- Descripción -->
+    <p class="texto-secundario">{{ servicio.descripcion }}</p>
+
+    <!-- Información adicional -->
+    <div class="detalle__info">
+      <div class="info-item">
+        <strong>Categoría:</strong>
+        <span>{{ servicio.categoria }}</span>
+      </div>
+      <div class="info-item">
+        <strong>ID:</strong>
+        <span>{{ servicio.id }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Estado:</strong>
+        <span>{{ servicio.destacado ? 'Destacado' : 'Normal' }}</span>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div class="detalle__acciones">
+      <!-- Botón de favorito -->
+      <button
+        class="boton boton--oscuro"
+        [class.es-favorito]="esFavorito"
+        (click)="toggleFavorito()">
+        <span aria-hidden="true">{{ esFavorito ? '♥' : '♡' }}</span>
+        {{ esFavorito ? 'Quitar de Favoritos' : 'Agregar a Favoritos' }}
+      </button>
+
+      <!-- Botón de contacto -->
+      <button class="boton boton--primario" (click)="contactar()">
+        Contactar Proveedor
+      </button>
+    </div>
+  </div>
+</div>

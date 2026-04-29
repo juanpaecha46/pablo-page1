@@ -1,0 +1,22 @@
+<!-- Template = HTML del componente -->
+<!-- [ngSwitch] = estructura de control para mostrar un componente u otro -->
+<div class="pagina">
+  <!-- Navbar: componente de navegación -->
+  <app-navbar 
+    [paginaActual]="paginaActual"
+    (cambiarPagina)="cambiarPagina($event)">
+  </app-navbar>
+
+  <!-- Contenido principal -->
+  <main class="contenido">
+    <!-- [ngSwitch] = muestra un componente diferente según paginaActual -->
+    <div [ngSwitch]="paginaActual">
+      <app-home *ngSwitchCase="'inicio'" (navegarA)="cambiarPagina($event)"></app-home>
+      <app-servicios *ngSwitchCase="'servicios'"></app-servicios>
+      <app-favoritos *ngSwitchCase="'favoritos'"></app-favoritos>
+      <app-crear *ngSwitchCase="'crear'" (servicioCreadoOKs)="cambiarPagina('servicios')"></app-crear>
+      <app-detalle *ngSwitchCase="'detalle'"></app-detalle>
+      <app-contacto *ngSwitchCase="'contacto'"></app-contacto>
+    </div>
+  </main>
+</div>

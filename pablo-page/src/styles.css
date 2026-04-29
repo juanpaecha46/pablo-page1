@@ -1,0 +1,83 @@
+/* Estilos globales de la aplicación */
+
+:root {
+  /* Colores */
+  --fondo: #ececec;
+  --tarjeta: #ffffff;
+  --texto: #222;
+  --secundario: #6b7280;
+  --linea: #e5e7eb;
+
+  --verde: #3b8f3a;
+  --verde-2: #2f7c2e;
+  --azul: #2f5e8f;
+
+  /* Efectos */
+  --sombra: 0 8px 18px rgba(0, 0, 0, 0.1);
+  --radio: 10px;
+}
+
+/* Reset global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* Estilos generales */
+a {
+  color: var(--verde);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizada (navegadores Webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verde);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verde-2);
+}

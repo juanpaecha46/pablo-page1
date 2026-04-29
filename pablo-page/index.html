@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Juan Servicios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>
+
+          <div class="detalle__cuerpo">
+            <h2 id="detalle-titulo"></h2>
+            <p id="detalle-descripcion" class="texto-secundario"></p>
+
+            <div class="detalle__info">
+              <strong>Categoría:</strong> <span id="detalle-categoria"></span>
+            </div>
+
+            <div class="detalle__acciones">
+              <button class="boton boton--oscuro" id="btn-toggle-favorito-detalle">
+                <span aria-hidden="true">♥</span> Agregar a Favoritos
+              </button>
+              <button class="boton boton--primario" id="btn-contactar-desde-detalle">
+                <span aria-hidden="true">♥</span> Contactar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vista-crear" class="vista" aria-label="Crear servicio">
+        <h1 class="titulo-pagina">Crear Servicio</h1>
+
+        <form id="formulario-crear" class="tarjeta formulario">
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="nombre">Nombre del Servicio</label>
+            <input id="nombre" class="entrada" required />
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="url-imagen">URL de la Imagen</label>
+            <input id="url-imagen" class="entrada" placeholder="https://..." />
+            <small class="ayuda">Si lo dejas vacío, se usará una imagen por defecto.</small>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="descripcion">Descripción</label>
+            <textarea id="descripcion" class="entrada area-texto" rows="4" required></textarea>
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="categoria">Categoría</label>
+            <select id="categoria" class="entrada select" required></select>
+          </div>
+
+          <div class="formulario__acciones">
+            <button class="boton boton--primario" type="submit">Crear</button>
+            <button class="boton boton--fantasma" type="button" id="btn-cancelar-crear">Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="vista-contacto" class="vista" aria-label="Contacto">
+        <h1 class="titulo-pagina">Contacto</h1>
+
+        <form id="formulario-contacto" class="tarjeta formulario contacto">
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="contacto-nombre">Nombre</label>
+            <input id="contacto-nombre" class="entrada" required />
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="contacto-email">Correo Electrónico</label>
+            <input id="contacto-email" class="entrada" type="email" required />
+          </div>
+
+          <div class="formulario__grupo">
+            <label class="etiqueta" for="contacto-mensaje">Mensaje</label>
+            <textarea id="contacto-mensaje" class="entrada area-texto" rows="5" required></textarea>
+          </div>
+
+          <div class="formulario__acciones formulario__acciones--izquierda">
+            <button class="boton boton--primario" type="submit">Enviar</button>
+          </div>
+
+          <div id="contacto-exito" class="exito esta-oculto" role="status" aria-live="polite">
+            <span class="exito__icono" aria-hidden="true">💚</span>
+            Mensaje enviado correctamente.
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="pie-pagina">
+      <p>&copy; 2026 Juan Servicios. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

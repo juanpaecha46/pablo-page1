@@ -1,0 +1,79 @@
+<!-- Formulario para crear servicio -->
+<h1 class="titulo-pagina">Crear Nuevo Servicio</h1>
+
+<!-- Formulario -->
+<div class="tarjeta formulario-contenedor">
+  <!-- Mensaje de estado -->
+  <div *ngIf="mensaje" class="mensaje-estado" [class.error]="mensaje.includes('Por favor')">
+    {{ mensaje }}
+  </div>
+
+  <form (ngSubmit)="crearServicio()" class="formulario">
+    <!-- Campo: Nombre -->
+    <div class="grupo-formulario">
+      <label for="nombre">Nombre del Servicio *</label>
+      <!-- [(ngModel)] = two-way binding -->
+      <input
+        id="nombre"
+        type="text"
+        class="entrada"
+        placeholder="Ej: Diseño Web"
+        [(ngModel)]="formulario.nombre"
+        name="nombre"
+        required>
+    </div>
+
+    <!-- Campo: Descripción -->
+    <div class="grupo-formulario">
+      <label for="descripcion">Descripción *</label>
+      <textarea
+        id="descripcion"
+        class="entrada"
+        placeholder="Describe tu servicio..."
+        [(ngModel)]="formulario.descripcion"
+        name="descripcion"
+        rows="4"
+        required></textarea>
+    </div>
+
+    <!-- Campo: Categoría -->
+    <div class="grupo-formulario">
+      <label for="categoria">Categoría *</label>
+      <select
+        id="categoria"
+        class="entrada"
+        [(ngModel)]="formulario.categoria"
+        name="categoria"
+        required>
+        <option value="">Selecciona una categoría</option>
+        <!-- *ngFor = repite la opción por cada categoría -->
+        <option *ngFor="let cat of categorias" [value]="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Campo: URL de imagen -->
+    <div class="grupo-formulario">
+      <label for="url-imagen">URL de Imagen (opcional)</label>
+      <input
+        id="url-imagen"
+        type="url"
+        class="entrada"
+        placeholder="https://ejemplo.com/imagen.jpg"
+        [(ngModel)]="formulario.urlImagen"
+        name="urlImagen">
+      <small class="texto-ayuda">Déjalo vacío para usar imagen por defecto</small>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="acciones-formulario">
+      <button type="submit" class="boton boton--primario">
+        Crear Servicio
+      </button>
+      <button type="button" class="boton boton--secundario" (click)="limpiarFormulario()">
+        Limpiar
+      </button>
+    </div>
+  </form>
+</div>

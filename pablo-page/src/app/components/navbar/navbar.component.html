@@ -1,0 +1,22 @@
+<!-- Navbar HTML -->
+<header class="barra-superior">
+  <!-- Logo de la aplicación -->
+  <div class="marca" role="banner" aria-label="Juan Servicios">
+    <span class="marca__juan">Juan</span>
+    <span class="marca__servicios">Servicios</span>
+  </div>
+
+  <!-- Navegación -->
+  <nav class="navegacion" aria-label="Navegación">
+    <!-- *ngFor = repite el botón por cada enlace -->
+    <!-- [class.esta-activo] = agrega la clase si la condición es verdadera -->
+    <!-- (click) = ejecuta la función cuando hace clic -->
+    <button 
+      *ngFor="let enlace of enlaces"
+      class="navegacion__enlace"
+      [class.esta-activo]="paginaActual === enlace.ruta"
+      (click)="navegar(enlace.ruta)">
+      {{ enlace.texto }}
+    </button>
+  </nav>
+</header>

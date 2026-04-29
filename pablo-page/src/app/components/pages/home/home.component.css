@@ -1,0 +1,157 @@
+/* Estilos de la página home */
+.hero {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 40px;
+  margin-bottom: 30px;
+}
+
+.hero__izquierda {
+  flex: 1;
+}
+
+.hero__izquierda h1 {
+  margin: 0 0 16px 0;
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.texto-secundario {
+  color: var(--secundario);
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+.hero__acciones {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.boton {
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.boton--primario {
+  background: var(--verde);
+  color: white;
+}
+
+.boton--primario:hover {
+  background: var(--verde-2);
+  transform: translateY(-2px);
+}
+
+.boton--fantasma {
+  background: transparent;
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.boton--fantasma:hover {
+  background: rgba(59, 143, 58, 0.1);
+}
+
+.hero__derecha {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__decoracion {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--verde), var(--azul));
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.titulo-seccion {
+  margin: 40px 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.testimonios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.testimonio {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+
+.testimonio p {
+  margin: 0 0 12px 0;
+  font-style: italic;
+  color: var(--secundario);
+}
+
+.testimonio strong {
+  color: var(--verde);
+  font-style: normal;
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 40px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta__fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--verde), var(--azul));
+  z-index: -1;
+}
+
+.cta__contenido {
+  color: white;
+}
+
+.cta__contenido h2 {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero__derecha {
+    display: none;
+  }
+
+  .cuadricula {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

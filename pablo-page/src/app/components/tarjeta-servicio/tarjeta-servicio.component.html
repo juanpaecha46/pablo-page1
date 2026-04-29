@@ -1,0 +1,33 @@
+<!-- Tarjeta de servicio HTML -->
+<div class="tarjeta tarjeta-servicio">
+  <!-- Imagen del servicio -->
+  <img class="tarjeta__imagen" [src]="servicio.urlImagen" [alt]="servicio.nombre" />
+  
+  <!-- Contenido de la tarjeta -->
+  <div class="tarjeta__cuerpo">
+    <!-- Categoría -->
+    <span class="etiqueta">{{ servicio.categoria }}</span>
+    
+    <!-- Nombre del servicio -->
+    <h3 class="tarjeta__titulo">{{ servicio.nombre }}</h3>
+    
+    <!-- Descripción -->
+    <p class="tarjeta__descripcion">{{ servicio.descripcion }}</p>
+    
+    <!-- Acciones (botones) -->
+    <div class="tarjeta__acciones">
+      <!-- Botón para ver detalles -->
+      <button class="boton boton--primario" (click)="ver()">
+        Ver Detalle
+      </button>
+      
+      <!-- Botón para agregar/quitar de favoritos -->
+      <button 
+        class="boton boton--oscuro" 
+        [class.es-favorito]="esFavorito"
+        (click)="toggleFavorito()">
+        <span aria-hidden="true">{{ esFavorito ? '♥' : '♡' }}</span>
+      </button>
+    </div>
+  </div>
+</div>

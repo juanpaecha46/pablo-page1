@@ -1,0 +1,21 @@
+<!-- Página de favoritos -->
+<h1 class="titulo-pagina">Favoritos</h1>
+<p class="texto-secundario">Tus servicios guardados aparecen aquí.</p>
+
+<!-- Cuadrícula de favoritos -->
+<div class="cuadricula">
+  <!-- Mostrar cada favorito -->
+  <app-tarjeta-servicio
+    *ngFor="let servicio of favoritos"
+    [servicio]="servicio"
+    (verDetalle)="verDetalle($event)"
+    (agregarFavorito)="agregarAFavoritos($event)"
+    (quitarFavorito)="quitarDeFavoritos($event)">
+  </app-tarjeta-servicio>
+</div>
+
+<!-- Mensaje si no hay favoritos -->
+<div *ngIf="favoritos.length === 0" class="mensaje-vacio">
+  <p>No tienes favoritos guardados.</p>
+  <p class="texto-secundario">Agrega algunos servicios a tu lista de favoritos.</p>
+</div>

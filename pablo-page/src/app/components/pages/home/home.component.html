@@ -1,0 +1,58 @@
+<!-- Página de inicio -->
+<!-- Hero section -->
+<section class="tarjeta hero">
+  <div class="hero__izquierda">
+    <h1>Encuentra los mejores servicios<br/>en un solo lugar</h1>
+    <p class="texto-secundario">Explora, guarda favoritos y contacta proveedores fácilmente.</p>
+    <div class="hero__acciones">
+      <!-- (click) = evento que se ejecuta cuando hace clic -->
+      <button class="boton boton--primario" (click)="irAServicios()">
+        Ver Servicios
+      </button>
+      <button class="boton boton--fantasma" (click)="irAContacto()">
+        Contactar
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios destacados -->
+<h2 class="titulo-seccion">Servicios Destacados</h2>
+<div class="cuadricula">
+  <!-- *ngFor = repite el componente por cada servicio -->
+  <app-tarjeta-servicio
+    *ngFor="let servicio of serviciosDestacados"
+    [servicio]="servicio"
+    (verDetalle)="verDetalle($event)"
+    (agregarFavorito)="agregarAFavoritos($event)"
+    (quitarFavorito)="quitarDeFavoritos($event)">
+  </app-tarjeta-servicio>
+</div>
+
+<!-- Testimonios -->
+<h2 class="titulo-seccion">Testimonios</h2>
+<div class="testimonios">
+  <div class="testimonio">
+    <p>"Excelente plataforma para encontrar servicios de calidad."</p>
+    <strong>- María García</strong>
+  </div>
+  <div class="testimonio">
+    <p>"Muy fácil de usar y muy buena atención."</p>
+    <strong>- Carlos López</strong>
+  </div>
+  <div class="testimonio">
+    <p>"Recomendado 100%. Volveré a usar."</p>
+    <strong>- Ana Martínez</strong>
+  </div>
+</div>
+
+<!-- CTA (Call To Action) -->
+<div class="tarjeta cta">
+  <div class="cta__fondo"></div>
+  <div class="cta__contenido">
+    <h2>¿Listo para encontrar lo que necesitas?</h2>
+    <button class="boton boton--primario" (click)="irAContacto()">
+      Contactar
+    </button>
+  </div>
+</div>
